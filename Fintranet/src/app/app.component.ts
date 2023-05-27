@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-
+import { environment } from './../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,7 @@ import { PrimeNGConfig } from 'primeng/api';
 export class AppComponent implements OnInit {
   
   constructor(private primengConfig: PrimeNGConfig){}
+  apiURL = environment.apiURL;
 
   ngOnInit() {
     this.primengConfig.zIndex = {
