@@ -1,0 +1,34 @@
+<div class="bg-slate-100 lg:w-72 rounded-md h-full border text-sm border-slate-200 p-2">
+    <div class="sticky top-2">
+        <button (click)="closeFilter.emit()" class="rounded-md hover:bg-rose-500 hover:text-white w-8 h-8 absolute top-0 right-0">
+            <i class="pi pi-times text-xs"></i>
+        </button>
+        <p class="text-center mt-2 mb-4 text-lg font-medium select-none">Filter User List</p>
+        <form [formGroup]="filters" class="grid grid-cols-1 gap-2" (ngSubmit)="submitFilter()">
+            <div class="card flex justify-content-center">
+                <p-multiSelect [options]="genderTypes" class="w-full" formControlName="gender"
+                    defaultLabel="Select Genders"></p-multiSelect>
+            </div>
+            <div class="card flex justify-content-center">
+                <p-multiSelect [options]="eyeColors" class="w-full" formControlName="eyeColor"
+                    defaultLabel="Select Eye Colors"></p-multiSelect>
+            </div>
+            <div class="card flex justify-content-center gap-2">
+                <p-inputNumber class="w-14" formControlName="age" mode="decimal" [min]="1" [max]="99"
+                    inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber>
+                <p-dropdown [options]="ageOptions" class="grow" formControlName="ageOption"
+                    defaultLabel="Select Age Option"></p-dropdown>
+            </div>
+            <p-calendar formControlName="birthDate" dateFormat='yy-mm-dd' appendTo="body" [showIcon]="true" selectionMode="range"
+                [readonlyInput]="true"></p-calendar>
+            <button class="hover:bg-blue-600 bg-blue-500 px-4 h-12 rounded-md text-white" type="submit">
+                Filter
+                <i class="pi pi-filter text-xs ml-1"></i>
+            </button>
+            <button class="hover:bg-rose-600 bg-rose-500 px-4 h-12 rounded-md text-white" type="button" (click)="filters.reset()">
+                Reset
+                <i class="pi pi-refresh text-xs ml-1"></i>
+            </button>
+        </form>
+    </div>
+</div>

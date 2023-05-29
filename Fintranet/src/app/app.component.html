@@ -1,4 +1,10 @@
-<div class="card flex justify-content-center">
-  <p-button label="Check" icon="pi pi-check"></p-button>
+<div class="h-full lg:grid grid-cols-6">
+      <div class="h-full pr-4 border-r border-slate-200 lg:block hidden">
+        <div class="card flex justify-content-center sticky top-2">
+          <p-menu [model]="menuItem" class="w-full"></p-menu>
+        </div>
+      </div>
+      <div class="col-span-5 w-full h-full">
+        <router-outlet></router-outlet>
+      </div>
 </div>
-<app-users-list></app-users-list>

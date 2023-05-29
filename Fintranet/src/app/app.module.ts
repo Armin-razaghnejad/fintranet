@@ -3,26 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
-import { UsersListComponent } from './users-list/users-list.component';
 import { HttpClientModule } from '@angular/common/http'
+import { HomeComponent } from './home/home.component';
+import { filerSearchReducer , UsersReducer ,filersReducer } from './state';
+import { MenubarModule } from 'primeng/menubar';
+import { MenuModule } from 'primeng/menu';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersListComponent
+    HomeComponent,
   ],
   imports: [
+    MenuModule,
+    MenubarModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ButtonModule,
     HttpClientModule,
-    TableModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ users: UsersReducer , search:filerSearchReducer, filters: filersReducer }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

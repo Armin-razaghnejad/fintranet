@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { PrimeNGConfig } from 'primeng/api';
-import { environment } from './../environments/environment';
+import { menuItem } from './libs/menu-items';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,10 @@ import { environment } from './../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
-  constructor(private primengConfig: PrimeNGConfig){}
-  apiURL = environment.apiURL;
+
+  menuItem = menuItem;
+
+  constructor(private primengConfig: PrimeNGConfig,private store:Store) { }
 
   ngOnInit() {
     this.primengConfig.zIndex = {
